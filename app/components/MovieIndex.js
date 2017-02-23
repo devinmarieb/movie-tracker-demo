@@ -46,9 +46,7 @@ export default class MovieIndex extends Component{
     let movie = allMovies.map( movie => {
       return <article className='movie-card' key={ movie.id }>
                 <img src={ 'https://image.tmdb.org/t/p/w342' + movie.poster_path } />
-                {/* {this.props.userSignInReducer.user ? <p onClick={ () => this.addFavorite(this.props.userSignInReducer.user.data.id, movie) } className='star'> &#9733; </p> : ''} */}
                 {this.props.userSignInReducer.user && window.location.pathname === '/' ? <p onClick={ () => this.addFavorite(this.props.userSignInReducer.user.data.id, movie, this.props.userSignInReducer.fav.data.data, this.props.movieIndexReducer)} className='star'> &#9733; </p> : ''}
-                {/* {this.props.userSignInReducer.user && window.location.pathname === '/favorites' ? <button onClick={ () => this.deleteFavorite(this.props.userSignInReducer.user.data.id, movie, this.props.userSignInReducer.fav.data.data, this.props.movieIndexReducer)} className='user-btn'> Remove  </button> : ''} */}
                 {this.props.userSignInReducer.user && window.location.pathname === '/favorites' ? <button onClick={ () => this.deleteFavorite(this.props.userSignInReducer.user.data.id, movie, this.props.userSignInReducer.fav.data.data, this.props.movieIndexReducer)} className='user-btn'> Remove  </button> : ''}
                 <h3 className='movie-title'>{ movie.title }</h3>
                 <p className='movie-overview'>{ movie.overview }</p>
