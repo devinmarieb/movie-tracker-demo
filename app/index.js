@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import {createStore} from 'redux';
-import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 
 import allReducers from './reducers/index';
 import {Provider} from 'react-redux';
@@ -17,7 +17,7 @@ const store = createStore(allReducers, devTools);
 
 const router = (
   <Provider store = {store}>
-    <Router history={browserHistory} >
+    <Router history={hashHistory} >
       <Route path='/' component={App}>
         <IndexRoute component={AllMovies} />
         <Route path='/login' component={Login} />
